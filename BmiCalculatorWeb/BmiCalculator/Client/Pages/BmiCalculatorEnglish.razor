@@ -1,0 +1,86 @@
+﻿@page "/BmiCalculator/english"
+@* https://www.cdc.gov/healthyweight/assessing/bmi/adult_bmi/english_bmi_calculator/bmi_calculator.html *@
+<div class="card mb-3">
+    <div class="card-header h4 bg-primary">Adult BMI Calculator</div>
+    <div class="card-body bg-white">
+        <p style="text-align: right;">( English | <a href="BmiCalculator/metric">Metric</a> )</p>
+        <div class="divrow">
+            <div class="divcell numeric"></div>
+            <div class="divcell">
+                <fieldset>
+                    <strong>1. Height:</strong>
+                </fieldset>
+                <ul class="horizontal nomarker nobox fieldset">
+                    <li>
+                        <div class="divtable">
+                            <div class="divrow">
+                                <div class="divcell">
+                                    <label for="feet">Feet</label>
+                                </div>
+                            </div>
+                            <div class="divrow">
+                                <div class="divcell">
+                                    <input id="feet" style="width: 5em !important;" tabindex="1" maxlength="1" name="feet" size="1" type="text" pwa2-uuid="EDITOR/input-62B-1E5-39ED1-DDC" pwa-fake-editor="">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="divtable">
+                            <div class="divrow">
+                                <div class="divcell">
+                                    <label for="inches">Inches</label>
+                                </div>
+                            </div>
+                            <div class="divrow">
+                                <div class="divcell">
+                                    <input id="inches" style="width: 5em !important;" tabindex="2" maxlength="5" name="inches" size="4" type="text" pwa2-uuid="EDITOR/input-DA0-47A-17F7B-5A2" pwa-fake-editor="">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="spacer"></div>
+            </div>
+        </div>
+        <div class="divrow">
+            <div class="divcell numeric"></div>
+            <div class="divcell">
+                <fieldset>
+                    <strong>2. Weight:</strong>
+                </fieldset>
+                <ul class="horizontal nomarker nobox fieldset">
+                    <li>
+                        <div class="divtable">
+                            <div class="divrow">
+                                <div class="divcell">
+                                    <label for="pounds">Pounds</label>
+                                </div>
+                            </div>
+                            <div class="divrow">
+                                <div class="divcell">
+                                    <input id="pounds" style="width: 5em !important;" tabindex="3" maxlength="6" name="pounds" size="6" type="text" pwa2-uuid="EDITOR/input-1EC-2E3-E4DA7-1B4" pwa-fake-editor="">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="spacer"></div>
+            </div>
+        </div>
+        <div class="divrow">
+            <div class="divcell numeric"></div>
+            <div class="divcell" style="padding-top: 1.5em;">
+                <ul class="horizontal nomarker nobox fieldset">
+                    <li>
+                        <input id="calc" class="select-box btn btn-primary specialLinkIconLeft bg-primary b-primary float-right" tabindex="4" name="calc" type="button" value="Calculate">
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+
+}
