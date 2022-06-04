@@ -26,6 +26,7 @@
                     </div>
                     <div class="mb-3">
                         <button class="btn btn-primary" @onclick="CalculateBMI">Calculate BMI</button>
+                        <button class="btn btn-primary">Save BMI</button>
                     </div>
                     <h3 class="mb-3">
                         <label class="form-label">BMI:@_currentBMI</label>
@@ -42,8 +43,8 @@
 @code {
 
     private double? _currentBMI;
-    private string? _heightText = "70";
-    private string? _weightText = "200";
+    private string _heightText = "70";
+    private string _weightText = "200";
 
     private void OnHeightTextChanged(object? newValue)
     {
