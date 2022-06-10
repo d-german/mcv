@@ -1,8 +1,7 @@
-using BmiCalculator.Client;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
-namespace Company.WebApplication1
+namespace BmiCalculator.Client
 {
     public class Program
     {

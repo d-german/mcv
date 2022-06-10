@@ -19,7 +19,7 @@ namespace BmiCalculator.Server.Controllers
         }
 
         // GET: /BmiHistory/5
-        [HttpGet("{id}", Name = "Get")]
+        [HttpGet("{id:int}", Name = "Get")]
         public string Get(int id)
         {
             return "value";
