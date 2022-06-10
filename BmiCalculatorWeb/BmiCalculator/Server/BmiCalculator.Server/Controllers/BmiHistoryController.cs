@@ -1,3 +1,4 @@
+using BmiCalculator.Server.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BmiCalculator.Server.Controllers
@@ -6,18 +7,31 @@ namespace BmiCalculator.Server.Controllers
     [ApiController]
     public class BmiHistoryController : ControllerBase
     {
+        private readonly IBmiRepository _bmiRepository;
+
+        public BmiHistoryController(IBmiRepository bmiRepository)
+        {
+            _bmiRepository = bmiRepository ?? throw new ArgumentNullException(nameof(bmiRepository));
+        }
+
         // GET: /BmiHistory
         [HttpGet(Name = "bmiHistory")]
-        public IEnumerable<string> Get()
+        [ProducesResponseType(200)]
+        [ProducesResponseType(404)]
+        public async Task<ActionResult<IEnumerable<BmiHistory>?>> Get()
         {
-            return new string[] { "value1", "value2" };
+            var result = await _bmiRepository.GetBmiHistoryAsync("1");
+            return result == null ? StatusCode(StatusCodes.Status404NotFound) : StatusCode(StatusCodes.Status200OK, result);
         }
 
         // GET: /BmiHistory/5
         [HttpGet("{id:int}", Name = "Get")]
-        public string Get(int id)
+        [ProducesResponseType(200)]
+        [ProducesResponseType(404)]
+        public async Task<ActionResult<IEnumerable<BmiHistory>?>> Get(int id)
         {
-            return "value";
+            var result = await _bmiRepository.GetBmiHistoryAsync(id.ToString());
+            return result == null ? StatusCode(StatusCodes.Status404NotFound) : StatusCode(StatusCodes.Status200OK, result);
         }
 
         // POST: BmiHistory

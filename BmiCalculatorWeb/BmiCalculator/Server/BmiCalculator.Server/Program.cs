@@ -25,6 +25,8 @@ namespace BmiCalculator.Server
                     });
             });
 
+            builder.Services.AddSingleton<IBmiRepository, BmiRepository>();
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
