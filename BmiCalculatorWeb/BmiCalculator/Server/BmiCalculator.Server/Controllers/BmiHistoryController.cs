@@ -15,7 +15,7 @@ namespace BmiCalculator.Server.Controllers
         }
 
         // GET: /BmiHistory/5
-        [HttpGet("{id:int}", Name = "Get")]
+        [HttpGet]
         [ProducesResponseType(200)]
         [ProducesResponseType(404)]
         public async Task<ActionResult<IEnumerable<BmiHistory>?>> Get(int id)
