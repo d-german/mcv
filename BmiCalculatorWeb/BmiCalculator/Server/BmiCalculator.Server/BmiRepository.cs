@@ -11,7 +11,6 @@ public class BmiRepository : IBmiRepository
             UserId = "1",
             Date = new DateTime(2020, 1, 1),
             Bmi = 20.0
-          
         },
         new BmiHistory
         {
@@ -43,7 +42,18 @@ public class BmiRepository : IBmiRepository
             Date = new DateTime(2020, 1, 6),
             Bmi = 19.9
         },
-        
+        new BmiHistory
+        {
+            UserId = "2",
+            Date = new DateTime(2020, 1, 7),
+            Bmi = 19.9
+        },
+        new BmiHistory
+        {
+            UserId = "2",
+            Date = new DateTime(2020, 1, 8),
+            Bmi = 19.9
+        }
     };
 
     public Task<IEnumerable<BmiHistory>?> GetBmiHistoryAsync(string userId)
@@ -58,6 +68,5 @@ public class BmiRepository : IBmiRepository
             _bmiHistory.Add(bmiHistory);
             return bmiHistory;
         })!;
-       
     }
 }
