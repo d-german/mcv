@@ -14,16 +14,6 @@ namespace BmiCalculator.Server.Controllers
             _bmiRepository = bmiRepository ?? throw new ArgumentNullException(nameof(bmiRepository));
         }
 
-        // GET: /BmiHistory
-        [HttpGet(Name = "bmiHistory")]
-        [ProducesResponseType(200)]
-        [ProducesResponseType(404)]
-        public async Task<ActionResult<IEnumerable<BmiHistory>?>> Get()
-        {
-            var result = await _bmiRepository.GetBmiHistoryAsync("1");
-            return result == null ? StatusCode(StatusCodes.Status404NotFound) : StatusCode(StatusCodes.Status200OK, result);
-        }
-
         // GET: /BmiHistory/5
         [HttpGet("{id:int}", Name = "Get")]
         [ProducesResponseType(200)]
@@ -36,20 +26,11 @@ namespace BmiCalculator.Server.Controllers
 
         // POST: BmiHistory
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<ActionResult<IEnumerable<BmiHistory>?>> Post([FromBody] BmiHistory value)
         {
+            var result = await _bmiRepository.SaveBmiHistoryAsync(value);
+            return result == null ? StatusCode(StatusCodes.Status404NotFound) : StatusCode(StatusCodes.Status200OK, result);
         }
 
-        // PUT: BmiHistory/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE: BmiHistory/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
     }
 }

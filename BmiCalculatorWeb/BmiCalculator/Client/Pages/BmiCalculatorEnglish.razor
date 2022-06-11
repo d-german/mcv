@@ -21,7 +21,7 @@
                         <input type="text"
                                class="form-control"
                                placeholder="Weight"
-                               @bind="_weightText"
+                               @bind="@_weightText"
                                @oninput="@(ui => OnWeightTextChanged(ui.Value))">
                     </div>
                     <div class="mb-3">
@@ -64,5 +64,13 @@
             return;
         }
         _currentBMI = weight * 703 / (height * height);
+    }
+    private void SaveBMI()
+    {
+        if (!_currentBMI.HasValue)
+        {
+            return;
+        }
+        // save BMI to database
     }
 }
