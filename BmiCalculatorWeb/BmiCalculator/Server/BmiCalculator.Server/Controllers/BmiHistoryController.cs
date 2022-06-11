@@ -26,6 +26,8 @@ namespace BmiCalculator.Server.Controllers
 
         // POST: BmiHistory
         [HttpPost]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(404)]
         public async Task<ActionResult<IEnumerable<BmiHistory>?>> Post([FromBody] BmiHistory value)
         {
             var result = await _bmiRepository.SaveBmiHistoryAsync(value);
